@@ -27,7 +27,7 @@ export class CarComponent implements OnInit {
       // console.log(this.cars.map(c => c.colorText));
       
       // console.log([...new Set(this.cars.map(c => c.colorText))]);
-
+      //console.log("deneme");
       this.colorOptions = [...new Set(this.cars.map(c => c.colorText))].map(x => {
         return { label: x, name: x }}).sort((a, b) => (a.label > b.label ? 1 : -1));
 

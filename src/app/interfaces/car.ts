@@ -8,4 +8,5 @@ export interface ICar {
     dailyPrice: number;
     description: string;
     isRented:boolean;
+    returnDate:string;
 }

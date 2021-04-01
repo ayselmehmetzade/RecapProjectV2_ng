@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~11.0.9",
     "@angular/router": "~11.0.9",
     "@fortawesome/fontawesome-free": "^5.15.3",
+    "primeflex": "^2.0.0",
     "primeicons": "^4.1.0",
     "primeng": "^11.3.1",
     "rxjs": "~6.6.0",

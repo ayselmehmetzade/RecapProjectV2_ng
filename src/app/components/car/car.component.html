@@ -1,5 +1,5 @@
-<h1>Car List</h1>
-<p-table [value]="cars">
+
+<p-table #dt [value]="cars">
     <ng-template pTemplate="header">
         <tr>
             <th>Brand</th>
@@ -7,59 +7,23 @@
             <th>ModelYear</th>
             <th>DailyPrice</th>
             <th>Description</th>
-            <th>Kiralama</th>
-            <th>Detay</th>
+            <th>Return Date</th>
+            <th>Detail</th>
         </tr>
         <tr>
-            
             <th>
-                <p-columnFilter field="brandText" matchMode="in" [showMenu]="false">
-                    <ng-template pTemplate="filter" let-value let-filter="filterCallback">
-                        <p-multiSelect [options]="brandOptions" [ngModel]="value" optionLabel="label" (onChange)="filter($event.value)" ></p-multiSelect>
-                    </ng-template>
-                </p-columnFilter>
+                <p-multiSelect [options]="brandOptions" placeholder="Seçiniz" (onChange)="dt.filter($event.value, 'brandText', 'in')"
+                    [style]="{ width: '100%' }"></p-multiSelect>
             </th>
             <th>
-                <p-columnFilter field="colorText" matchMode="in" [showMenu]="false">
-                    <ng-template pTemplate="filter" let-value let-filter="filterCallback">
-                        <p-multiSelect [options]="colorOptions" [ngModel]="value" optionLabel="value" (onChange)="filter($event.value)" ></p-multiSelect>
-                    </ng-template>
-                </p-columnFilter>
+                <p-multiSelect [options]="colorOptions" placeholder="Seçiniz" (onChange)="dt.filter($event.value, 'colorText', 'in')"
+                    [style]="{ width: '100%' }"></p-multiSelect>
             </th>
-            <!-- <th>
-                <p-columnFilter field="representative" matchMode="in" [showMenu]="false">
-                    <ng-template pTemplate="filter" let-value let-filter="filterCallback">
-                        <p-multiSelect [ngModel]="value" [options]="representatives" placeholder="Any"
-                            (onChange)="filter($event.value)" optionLabel="name">
-                            <ng-template let-option pTemplate="item">
-                                <div class="p-multiselect-representative-option">
-                                    <img [alt]="option.label"
-                                        src="assets/showcase/images/demo/avatar/{{ option.image }}" width="32"
-                                        style="vertical-align: middle" />
-                                    <span class="p-ml-1">{{ option.name }}</span>
-                                </div>
-                            </ng-template>
-                        </p-multiSelect>
-                    </ng-template>
-                </p-columnFilter>
-            </th>
+            <th></th>
+            <th></th>
             <th>
-                <p-columnFilter field="status" matchMode="equals" [showMenu]="false">
-                    <ng-template pTemplate="filter" let-value let-filter="filterCallback">
-                        <p-dropdown [ngModel]="value" [options]="statuses" (onChange)="filter($event.value)"
-                            placeholder="Any" [showClear]="true">
-                            <ng-template let-option pTemplate="item">
-                                <span [class]="'customer-badge status-' + option.value">{{
-                                    option.label
-                                    }}</span>
-                            </ng-template>
-                        </p-dropdown>
-                    </ng-template>
-                </p-columnFilter>
+                <p-columnFilter placeholder="Seçiniz" type="text" field="description" [showMenu]="false"></p-columnFilter>
             </th>
-            <th>
-                <p-columnFilter type="boolean" field="verified"></p-columnFilter>
-            </th> -->
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-car>
@@ -70,11 +34,13 @@
             <td>{{ car.dailyPrice }}</td>
             <td>{{ car.description }}</td>
             <td>
-                <span *ngIf="car.isRented">Rented</span>
-                <button *ngIf="!car.isRented" pButton pRipple type="button" label="Rent" class="p-button-outlined p-button-success"></button>
+                <span *ngIf="car.isRented">{{car.returnDate}}</span>
+                <button *ngIf="!car.isRented" pButton pRipple type="button" label="Rent"
+                    class="p-button-outlined p-button-success"></button>
             </td>
             <td>
-                <button pButton pRipple type="button" label="Detail" class="p-button-outlined p-button-secondary"></button>
+                <button (click)="getCarDetail(car)" pButton pRipple type="button" label="Detail"
+                    class="p-button-outlined p-button-secondary"></button>
             </td>
         </tr>
     </ng-template>

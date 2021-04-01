@@ -1,1 +1,34 @@
-<p>car-detail works!</p>
+<div *ngIf="car" class="p-d-flex">
+    <div class="p-col-12 p-md-3">
+        <div class="p-fluid">
+            <div class="p-field">
+                <label for="brandName">Brand Name</label>
+                <input id="brandName" readonly value="{{car.brandText}}" type="text" pInputText> 
+            </div>
+            <div class="p-field">
+                <label for="colorName">Color Name</label>
+                <input id="colorName" readonly value="{{car.colorText}}" type="text" pInputText> 
+            </div>
+            <div class="p-field">
+                <label for="dailyPrice">Daily Price</label>
+                <input id="dailyPrice" readonly readonly value="{{car.dailyPrice}}" type="text" pInputText> 
+            </div>
+            <div class="p-field">
+                <label for="modelYear">Model Year</label>
+                <input id="modelYear" readonly value="{{car.modelYear}}" type="text" pInputText> 
+            </div>
+            <div class="p-field">
+                <label for="description">Description</label>
+                <input id="description" readonly value="{{car.description}}" type="text" pInputText> 
+            </div>
+        </div>
+    </div>
+    <p-divider layout="vertical"></p-divider>
+    <div class="p-col-12 p-md-9">
+        <p-galleria [value]="images">
+            <ng-template pTemplate="item" let-item>
+                <img [src]="item.previewImageSrc" [alt]="item.alt" />
+            </ng-template>
+        </p-galleria>      
+    </div>
+</div>

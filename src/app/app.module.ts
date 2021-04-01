@@ -20,12 +20,18 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { RentalDetailComponent } from './components/rental-detail/rental-detail.component';
 import { AppMenuTopComponent } from './app-menu.component';
+import { CarOperationComponent } from './components/car-operation/car-operation.component';
 
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import {TableModule} from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
 import {MultiSelectModule} from 'primeng/multiselect';
+import {TabViewModule} from 'primeng/tabview';
+import {DividerModule} from 'primeng/divider';
+import {CardModule} from 'primeng/card';
+import {GalleriaModule} from 'primeng/galleria';
+
 
 
 @NgModule({
@@ -42,7 +48,8 @@ import {MultiSelectModule} from 'primeng/multiselect';
     CustomerComponent,
     RentalComponent,
     RentalDetailComponent,
-    AppMenuTopComponent
+    AppMenuTopComponent,
+    CarOperationComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +63,11 @@ import {MultiSelectModule} from 'primeng/multiselect';
     TableModule,
     InputTextModule,
     BrowserAnimationsModule,
-    MultiSelectModule    
+    MultiSelectModule,
+    TabViewModule,
+    DividerModule,
+    CardModule,
+    GalleriaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

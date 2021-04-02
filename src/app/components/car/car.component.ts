@@ -20,7 +20,6 @@ export class CarComponent implements OnInit {
   ngOnInit(): void {
 
     this.carService.getAll().subscribe(response => {
-
       this.cars = response.data;
       this.brandOptions = [...new Set(this.cars.map(b => b.brandText))].map(x => {
         return { label: x, value: x }

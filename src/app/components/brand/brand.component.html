@@ -1,1 +1,20 @@
-<p>brand works!</p>
+<p-table [value]="brands">
+    <ng-template pTemplate="header">
+        <tr>
+            <th *ngFor="let col of cols">
+                {{col.header}}
+            </th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-brand>
+        <tr>
+            <td *ngFor="let col of cols">
+                    {{brand[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        There are {{brands?.length}} brands
+    </ng-template>
+   
+</p-table>

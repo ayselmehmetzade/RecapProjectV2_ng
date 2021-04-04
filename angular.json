@@ -33,6 +33,7 @@
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
               "node_modules/primeng/resources/themes/saga-blue/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
+              "./node_modules/ngx-toastr/toastr.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -124,6 +125,46 @@
             "production": {
               "devServerTarget": "RecapProject:serve:production"
             }
+          }
+        }
+      }
+    },
+    "recap": {
+      "projectType": "library",
+      "root": "projects/recap",
+      "sourceRoot": "projects/recap/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/recap/tsconfig.lib.json",
+            "project": "projects/recap/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/recap/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/recap/src/test.ts",
+            "tsConfig": "projects/recap/tsconfig.spec.json",
+            "karmaConfig": "projects/recap/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/recap/tsconfig.lib.json",
+              "projects/recap/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }

@@ -5,7 +5,7 @@ import { MenuItem } from 'primeng/api';
     selector: 'app-menu-top',
     template: `<p-menubar [model]="items">
         <div>
-            <input type="text" pInputText placeholder="Search">
+            <app-cart-summary></app-cart-summary>
             <button type="button" pButton label="Logout" icon="pi pi-power-off" style="margin-left:.25em"></button>
         </div>
     </p-menubar>`,
@@ -17,18 +17,17 @@ export class AppMenuTopComponent {
     constructor() {
         this.items = [
             {
-                label: 'CarList', icon: 'fa fa-car'
+                label: 'CarList', icon: 'fa fa-car', url:'cars'
             },
             {
-                label: 'BrandList', icon: 'fas fa-copyright'
+                label: 'BrandList', icon: 'fas fa-copyright', url:'brands'
             },
             {
-                label: 'ColorList', icon: 'fas fa-palette'
+                label: 'ColorList', icon: 'fas fa-palette', url:'colors'
             },
             {
                 label: 'RentalList', icon: 'far fa-handshake'
             },
-
         ];
     }
 }

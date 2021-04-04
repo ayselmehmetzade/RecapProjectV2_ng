@@ -1,7 +1,9 @@
 <div *ngIf="car" class="p-d-flex">
     <div class="p-col-12 p-md-3">
         <div class="p-fluid">
-            <div class="p-field">
+            <recap-form *ngIf="formModel && formModel.length > 0" [forms]="formModel" 
+                [formGroup]="formGroup" (update)="test($event)" [buttonLabel]="'Update'"></recap-form>
+            <!-- <div class="p-field">
                 <label for="brandName">Brand Name</label>
                 <input id="brandName" readonly value="{{car.brandText}}" type="text" pInputText>
             </div>
@@ -20,7 +22,7 @@
             <div class="p-field">
                 <label for="description">Description</label>
                 <input id="description" readonly value="{{car.description}}" type="text" pInputText>
-            </div>
+            </div> -->
         </div>
     </div>
     <p-divider layout="vertical"></p-divider>

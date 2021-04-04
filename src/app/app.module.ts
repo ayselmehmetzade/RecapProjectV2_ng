@@ -21,6 +21,7 @@ import { RentalComponent } from './components/rental/rental.component';
 import { RentalDetailComponent } from './components/rental-detail/rental-detail.component';
 import { AppMenuTopComponent } from './app-menu.component';
 import { CarOperationComponent } from './components/car-operation/car-operation.component';
+import { LoginComponent } from './components/login/login.component';
 
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
@@ -30,7 +31,11 @@ import {MultiSelectModule} from 'primeng/multiselect';
 import {TabViewModule} from 'primeng/tabview';
 import {DividerModule} from 'primeng/divider';
 import {CardModule} from 'primeng/card';
+import {DropdownModule} from 'primeng/dropdown';
 import {GalleriaModule} from 'primeng/galleria';
+import { ToastrModule } from 'ngx-toastr';
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
+import { RecapModule } from 'projects/recap/src/public-api';
 
 
 
@@ -49,7 +54,9 @@ import {GalleriaModule} from 'primeng/galleria';
     RentalComponent,
     RentalDetailComponent,
     AppMenuTopComponent,
-    CarOperationComponent
+    CarOperationComponent,
+    LoginComponent,
+    CartSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -66,8 +73,13 @@ import {GalleriaModule} from 'primeng/galleria';
     MultiSelectModule,
     TabViewModule,
     DividerModule,
+    DropdownModule,
     CardModule,
-    GalleriaModule
+    GalleriaModule,
+    RecapModule,
+    ToastrModule.forRoot({
+      positionClass:"toast-top-right"
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,19 @@
-<p>color works!</p>
+<p-table [value]="colors">
+  <ng-template pTemplate="header">
+    <tr>
+      <th *ngFor="let col of cols">
+        {{ col.header }}
+      </th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-color>
+    <tr>
+      <td *ngFor="let col of cols">
+        {{ color[col.field] }}
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+    There are {{ colors?.length }} colors
+  </ng-template>
+</p-table>

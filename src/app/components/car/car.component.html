@@ -35,7 +35,9 @@
             <td>{{ car.description }}</td>
             <td>
                 <span *ngIf="car.isRented">{{car.returnDate}}</span>
-                <button *ngIf="!car.isRented" pButton pRipple type="button" label="Rent"
+                <!-- <button *ngIf="!car.isRented" pButton pRipple type="button" label="Rent"
+                    class="p-button-outlined p-button-success"></button> -->
+                    <button *ngIf="!car.isRented" (click)="addToCart(car)" pButton pRipple type="button" label="Rent"
                     class="p-button-outlined p-button-success"></button>
             </td>
             <td>

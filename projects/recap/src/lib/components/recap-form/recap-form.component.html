@@ -1,0 +1,17 @@
+<div *ngIf="forms && forms.length > 0">
+    <form [formGroup]="formGroup">
+        <div *ngFor="let form of forms">
+            <div [ngSwitch]="form.type">
+                <div *ngSwitchCase = "'text'">
+                    <label for="{{form.control}}">{{form.name}}</label>
+                    <input class="form-control" id="{{form.control}}" formControlName="{{form.control}}" type="text" pInputText>
+                </div>
+                <div *ngSwitchCase = "'number'">
+                    <label for="{{form.control}}">{{form.name}}</label>
+                    <input class="form-control" id="{{form.control}}" formControlName="{{form.control}}" type="number" pInputText>
+                </div>
+            </div>
+        </div>
+        <!-- <button pButton (click)="sendData()" label="{{buttonLabel}}"></button> -->
+    </form>
+</div>

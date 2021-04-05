@@ -9,7 +9,6 @@ import { RentalDetailService } from 'src/app/services/rental-detail.service';
   styleUrls: ['./rental-detail.component.scss']
 })
 export class RentalDetailComponent implements OnInit {
-
   // @Input() rentDetail: IRentalDetail;
 
   nowValue: Date;

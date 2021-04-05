@@ -1,19 +1,28 @@
-<p-table [value]="colors">
+
+<p-table #dt [value]="[0]">
   <ng-template pTemplate="header">
-    <tr>
-      <th *ngFor="let col of cols">
-        {{ col.header }}
-      </th>
-    </tr>
+      <tr>
+          <th>Color Id</th>
+          <th>Color Name</th>
+      </tr>
+      <tr>
+          <th>               
+          </th>
+          <th>
+              <input pInputText type="text" [(ngModel)]="colorFilterText" class="form-control" id="colorFilterText"
+              placeholder="Arama İfadesi" />
+          </th>
+      </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-color>
-    <tr>
-      <td *ngFor="let col of cols">
-        {{ color[col.field] }}
-      </td>
-    </tr>
-  </ng-template>
-  <ng-template pTemplate="summary">
-    There are {{ colors?.length }} colors
+  <ng-template pTemplate="body">
+      <tr *ngFor="let color of colors | colorFilter:colorFilterText">
+          <td>{{ color.colorId }}</td>
+          <td>{{ color.colorName }}</td>
+          <td>
+              <button pButton pRipple type="button" label="Güncelle"
+                  class="p-button-outlined p-button-secondary"></button>
+          </td>
+      </tr>
   </ng-template>
 </p-table>
+

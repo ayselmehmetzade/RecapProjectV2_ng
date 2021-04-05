@@ -12,6 +12,8 @@ export class ColorComponent implements OnInit {
   color:IColor;
   cols:any[];
 
+  
+
   colorFilterText="";
   constructor(private colorService: ColorService) { }
 

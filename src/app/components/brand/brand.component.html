@@ -1,5 +1,5 @@
 
-<p-table #dt [value]="brands">
+<p-table #dt [value]="[0]">
     <ng-template pTemplate="header">
         <tr>
             <th>Brand Id</th>
@@ -14,8 +14,8 @@
             </th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-brand>
-        <tr>
+    <ng-template pTemplate="body">
+        <tr *ngFor="let brand of brands | brandFilter:brandFilterText">
             <td>{{ brand.brandId }}</td>
             <td>{{ brand.brandName }}</td>
             <td>
@@ -25,3 +25,4 @@
         </tr>
     </ng-template>
 </p-table>
+

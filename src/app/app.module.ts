@@ -22,6 +22,7 @@ import { RentalDetailComponent } from './components/rental-detail/rental-detail.
 import { AppMenuTopComponent } from './app-menu.component';
 import { CarOperationComponent } from './components/car-operation/car-operation.component';
 import { LoginComponent } from './components/login/login.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
@@ -34,8 +35,13 @@ import {CardModule} from 'primeng/card';
 import {DropdownModule} from 'primeng/dropdown';
 import {GalleriaModule} from 'primeng/galleria';
 import { ToastrModule } from 'ngx-toastr';
-import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { RecapModule } from 'projects/recap/src/public-api';
+import {DialogModule} from 'primeng/dialog';
+import {CalendarModule} from 'primeng/calendar';
+import {StepsModule} from 'primeng/steps';
+import {InputMaskModule} from 'primeng/inputmask';
+import {CheckboxModule} from 'primeng/checkbox';
+import {ListboxModule} from 'primeng/listbox';
 
 
 
@@ -56,7 +62,7 @@ import { RecapModule } from 'projects/recap/src/public-api';
     AppMenuTopComponent,
     CarOperationComponent,
     LoginComponent,
-    CartSummaryComponent
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -77,6 +83,12 @@ import { RecapModule } from 'projects/recap/src/public-api';
     CardModule,
     GalleriaModule,
     RecapModule,
+    ListboxModule,
+    InputMaskModule,
+    StepsModule,
+    CalendarModule,
+    DialogModule,
+    CheckboxModule,
     ToastrModule.forRoot({
       positionClass:"toast-top-right"
     })

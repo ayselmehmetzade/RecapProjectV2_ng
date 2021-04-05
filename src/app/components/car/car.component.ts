@@ -1,7 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { ICar } from 'src/app/interfaces/car';
+import { IRentalDetail } from 'src/app/interfaces/rental-detail';
 import { CarService } from 'src/app/services/car.service';
+import { RentalDetailService } from 'src/app/services/rental-detail.service';
+import { CarOperationComponent } from '../car-operation/car-operation.component';
 
 @Component({
   selector: 'app-car',
@@ -16,7 +19,7 @@ export class CarComponent implements OnInit {
   test: any[] = [];
   @Output() carDetail = new EventEmitter<ICar>();
 
-  constructor(private carService: CarService, private toastrService: ToastrService) { }
+  constructor(private carService: CarService, private toastrService: ToastrService, public rentService: RentalDetailService) { }
 
   ngOnInit(): void {
     this.getCars();
@@ -40,8 +43,19 @@ export class CarComponent implements OnInit {
     this.carDetail.emit(e);
   }
 
-  addToCart(car: ICar) {
-    console.log(car);
-    this.toastrService.success("Sepete Eklendi", car.brandText)
+  // addToCart(car: ICar) {
+  //   console.log(car);
+  //   this.toastrService.success("Sepete Eklendi", car.brandText)
+  // }
+
+  sendRent(e: ICar) {
+    let renDetail = <IRentalDetail>{
+      carId: e.id
+    }
+
+    this.rentService.activeIndex=0;
+    this.rentService.value = renDetail;
+    this.rentService.isNew = true;
+    this.rentService.isShow = true;
   }
 }

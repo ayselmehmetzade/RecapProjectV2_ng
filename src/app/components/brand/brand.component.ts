@@ -10,15 +10,12 @@ import { BrandService } from 'src/app/services/brand.service';
 export class BrandComponent implements OnInit {
   brands: IBrand[] = [];
   cols: any[];
+  brandFilterText="";
 
   constructor(private brandService: BrandService) { }
 
   ngOnInit(): void {
-    this.cols = [
-      { field: 'brandId', header: 'Brand Id' },
-      { field: 'brandName', header: 'Brand Name' },
-    ];
-    this.getBrands();
+      this.getBrands();
   }
 
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ICar } from 'src/app/interfaces/car';
+import { RentalDetailService } from 'src/app/services/rental-detail.service';
 
 @Component({
   selector: 'app-car-operation',
@@ -11,9 +12,9 @@ export class CarOperationComponent implements OnInit {
   activeIndex: number = 0;
   car: ICar;
   detailHeader: string = "";
- 
+  rentDetailShow:boolean;
 
-  constructor() { }
+  constructor(public rentService: RentalDetailService) { }
 
   ngOnInit(): void {
   }

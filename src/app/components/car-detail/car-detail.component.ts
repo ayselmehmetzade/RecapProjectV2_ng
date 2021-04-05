@@ -2,7 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { IFormModel } from 'projects/recap/src/lib/models/form.model';
 import { ICar } from 'src/app/interfaces/car';
+import { IRentalDetail } from 'src/app/interfaces/rental-detail';
 import { CarImagesService } from 'src/app/services/car-images.service';
+import { RentalDetailService } from 'src/app/services/rental-detail.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -18,7 +20,7 @@ export class CarDetailComponent implements OnInit {
   formModel: IFormModel[] = [];
   formGroup: FormGroup;
 
-  constructor(private carImageService: CarImagesService) { }
+  constructor(private carImageService: CarImagesService, public rentService: RentalDetailService) { }
 
   ngOnInit(): void {
 
@@ -33,7 +35,8 @@ export class CarDetailComponent implements OnInit {
       { name: 'Color Name', control: 'colorName', type: 'text' },
       { name: 'Daily Price', control: 'dailyPrice', type: 'number' },
       { name: 'Model Year', control: 'modelYear', type: 'text' },
-      { name: 'Desciption', control: 'description', type: 'text'}
+      { name: 'Desciption', control: 'description', type: 'text' },
+      { name: 'Retunr Date', control: 'returnDate', type: 'text', hide: c && c.isRented ? false : true }
     ];
 
     this.formGroup = new FormGroup({
@@ -41,7 +44,8 @@ export class CarDetailComponent implements OnInit {
       colorName: new FormControl(c ? c.colorText : ''),
       dailyPrice: new FormControl(c ? c.dailyPrice : ''),
       modelYear: new FormControl(c ? c.modelYear : ''),
-      description: new FormControl(c ? c.description : '')
+      description: new FormControl(c ? c.description : ''),
+      returnDate: new FormControl(c ? c.returnDate : '')
     }
     );
   }
@@ -59,5 +63,15 @@ export class CarDetailComponent implements OnInit {
 
   test(e) {
     console.log(e);
+  }
+
+  sendRent() {
+    let renDetail = <IRentalDetail>{
+      carId: this.car.id,
+    }
+    this.rentService.activeIndex = 0;
+    this.rentService.value = renDetail;
+    this.rentService.isNew = true;
+    this.rentService.isShow = true;
   }
 }

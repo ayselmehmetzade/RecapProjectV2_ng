@@ -1,20 +1,27 @@
-<p-table [value]="brands">
+
+<p-table #dt [value]="brands">
     <ng-template pTemplate="header">
         <tr>
-            <th *ngFor="let col of cols">
-                {{col.header}}
+            <th>Brand Id</th>
+            <th>Brand Name</th>
+        </tr>
+        <tr>
+            <th>               
+            </th>
+            <th>
+                <input pInputText type="text" [(ngModel)]="brandFilterText" class="form-control" id="brandFilterText"
+                placeholder="Arama İfadesi" />
             </th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-brand>
         <tr>
-            <td *ngFor="let col of cols">
-                    {{brand[col.field]}}
+            <td>{{ brand.brandId }}</td>
+            <td>{{ brand.brandName }}</td>
+            <td>
+                <button pButton pRipple type="button" label="Güncelle"
+                    class="p-button-outlined p-button-secondary"></button>
             </td>
         </tr>
     </ng-template>
-    <ng-template pTemplate="summary">
-        There are {{brands?.length}} brands
-    </ng-template>
-   
 </p-table>

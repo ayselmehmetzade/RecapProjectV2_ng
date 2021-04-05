@@ -7,6 +7,6 @@ export interface IRentalDetail {
     brandName: string;
     colorName: string;
     userName: string;
-    rentDate: string;
-    returnDate: string;
+    rentDate: Date;
+    returnDate?: Date;
 }

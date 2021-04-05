@@ -5,4 +5,5 @@ export interface IFormModel{
     name: string;
     placeHolder?: string;
     style?: string;
+    hide?:boolean;
 }

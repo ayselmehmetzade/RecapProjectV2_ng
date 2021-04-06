@@ -9,13 +9,14 @@ import { RentalDetailService } from 'src/app/services/rental-detail.service';
   styleUrls: ['./rental-detail.component.scss']
 })
 export class RentalDetailComponent implements OnInit {
-  // @Input() rentDetail: IRentalDetail;
-
   nowValue: Date;
   rentDate: Date;
   returnDate: Date;
 
   items: MenuItem[];
+
+  minReturn: Date = new Date();
+
 
   constructor(public rentService: RentalDetailService) { }
 
@@ -34,10 +35,18 @@ export class RentalDetailComponent implements OnInit {
     this.rentDate = this.rentService.value ? this.rentService.value.rentDate : this.nowValue;
     this.returnDate = this.rentService.value ? this.rentService.value.returnDate : null;
   }
-  
-  onChanges() {
+
+  ngOnChanges() {
     this.setData();
   }
 
+  rentSelect(e: any) {
+    let rentDate: Date = new Date(e);
+    this.minReturn = rentDate;
+
+    if (this.rentService.value.returnDate && this.rentService.value.returnDate.getTime() < rentDate.getTime()) {
+      this.rentService.value.returnDate=rentDate;
+    }
+  }
 
 }

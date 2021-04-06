@@ -65,9 +65,11 @@ export class CarDetailComponent implements OnInit {
     console.log(e);
   }
 
-  sendRent() {
+  sendRent() {   
     let renDetail = <IRentalDetail>{
       carId: this.car.id,
+      returnDate:null,
+      rentDate:new Date()
     }
     this.rentService.activeIndex = 0;
     this.rentService.value = renDetail;

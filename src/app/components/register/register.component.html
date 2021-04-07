@@ -1,8 +1,8 @@
 <div class="card">
-    <h5>Signing</h5>
+    <h5>Signup</h5>
     <div class="p-fluid p-formgrid p-grid">
         <div class="p-field p-col-12 p-md-9">
-            <form [formGroup]="loginForm">
+            <form [formGroup]="registerForm">
                 <div class="p-field">
                     <label for="email" class="p-sr-only">Email</label>
                     <input id="email" formControlName="email" type="email" pInputText placeholder="Email" />
@@ -11,10 +11,18 @@
                     <label for="password" class="p-sr-only">Password</label>
                     <input id="password" formControlName="password" type="password" pInputText placeholder="Password" />
                 </div>
+                <div class="p-field">
+                    <label for="firstName" class="p-sr-only">First Name</label>
+                    <input id="firstName" formControlName="firstName" type="text" pInputText placeholder="FisrtName" />
+                </div>
+                <div class="p-field">
+                    <label for="lastName" class="p-sr-only">Last Name</label>
+                    <input id="lastName" formControlName="lastName" type="text" pInputText placeholder="Last Name" />
+                </div>
             </form>
         </div>
         <div class="p-col-12 p-md-9">
-            <button pButton pRipple (click)="login()" type="button" label="Submit"></button>
+            <button pButton pRipple type="button" (click)="register()" label="Submit"></button>
         </div>
     </div>
 </div>

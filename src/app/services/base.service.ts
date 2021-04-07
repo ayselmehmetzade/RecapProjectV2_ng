@@ -13,20 +13,28 @@ export class BaseService<T> {
   apiUrl: string = "";
 
   constructor(protected httpClient: HttpClient, protected serviceUrl: string) {
-    this.apiUrl = this.serverUrl + serviceUrl+'/';
+    this.apiUrl = this.serverUrl + serviceUrl + '/';
   }
 
   addItem(item: T): Observable<IListResponse<T>> {
-    return this.httpClient.post<IListResponse<T>>(this.apiUrl, item);
+    return this.httpClient.post<IListResponse<T>>(this.apiUrl + 'add', item);
   }
 
   getAll(): Observable<IListResponse<T>> {
-    return this.httpClient.get<IListResponse<T>>(this.apiUrl+'getall');
+    return this.httpClient.get<IListResponse<T>>(this.apiUrl + 'getall');
   }
 
-  getById(id:any):Observable<IListResponse<T>>{
-    return this.httpClient.get<IListResponse<T>>(this.apiUrl+id);
+  getById(id: any): Observable<IListResponse<T>> {
+    return this.httpClient.get<IListResponse<T>>(this.apiUrl + id);
   }
 
+  delete(item:T): Observable<IListResponse<T>> {
+    return this.httpClient.post<IListResponse<T>>(this.apiUrl+'delete',item);
+  }
+
+  update(item: T): Observable<IListResponse<T>> {
+    let newPath = this.apiUrl + "brands/BrandUpdated"
+    return this.httpClient.post<IListResponse<T>>(this.apiUrl+'update',item);
+  }
 
 }

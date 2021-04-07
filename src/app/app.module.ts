@@ -23,25 +23,37 @@ import { AppMenuTopComponent } from './app-menu.component';
 import { CarOperationComponent } from './components/car-operation/car-operation.component';
 import { LoginComponent } from './components/login/login.component';
 import { PaymentComponent } from './components/payment/payment.component';
+import { JwtModule } from "@auth0/angular-jwt";
+
 
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
-import {TableModule} from 'primeng/table';
+import { TableModule } from 'primeng/table';
 import { InputTextModule } from 'primeng/inputtext';
-import {MultiSelectModule} from 'primeng/multiselect';
-import {TabViewModule} from 'primeng/tabview';
-import {DividerModule} from 'primeng/divider';
-import {CardModule} from 'primeng/card';
-import {DropdownModule} from 'primeng/dropdown';
-import {GalleriaModule} from 'primeng/galleria';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { TabViewModule } from 'primeng/tabview';
+import { DividerModule } from 'primeng/divider';
+import { CardModule } from 'primeng/card';
+import { DropdownModule } from 'primeng/dropdown';
+import { GalleriaModule } from 'primeng/galleria';
 import { ToastrModule } from 'ngx-toastr';
 import { RecapModule } from 'projects/recap/src/public-api';
-import {DialogModule} from 'primeng/dialog';
-import {CalendarModule} from 'primeng/calendar';
-import {StepsModule} from 'primeng/steps';
-import {InputMaskModule} from 'primeng/inputmask';
-import {CheckboxModule} from 'primeng/checkbox';
-import {ListboxModule} from 'primeng/listbox';
+import { DialogModule } from 'primeng/dialog';
+import { CalendarModule } from 'primeng/calendar';
+import { StepsModule } from 'primeng/steps';
+import { InputMaskModule } from 'primeng/inputmask';
+import { CheckboxModule } from 'primeng/checkbox';
+import { ListboxModule } from 'primeng/listbox';
+import { AccordionModule } from 'primeng/accordion';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
+import { RegisterComponent } from './components/register/register.component';
+
+
+
+export function tokenGetter() {
+  return localStorage.getItem("access_token");
+}
 
 
 
@@ -62,7 +74,10 @@ import {ListboxModule} from 'primeng/listbox';
     AppMenuTopComponent,
     CarOperationComponent,
     LoginComponent,
-    PaymentComponent
+    PaymentComponent,
+    BrandAddComponent,
+    ColorAddComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -80,6 +95,7 @@ import {ListboxModule} from 'primeng/listbox';
     TabViewModule,
     DividerModule,
     DropdownModule,
+    AccordionModule,
     CardModule,
     GalleriaModule,
     RecapModule,
@@ -90,8 +106,16 @@ import {ListboxModule} from 'primeng/listbox';
     DialogModule,
     CheckboxModule,
     ToastrModule.forRoot({
-      positionClass:"toast-top-right"
-    })
+      positionClass: "toast-top-right"
+    }),
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ["http://localhost:4200/"]
+      },
+    }),
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

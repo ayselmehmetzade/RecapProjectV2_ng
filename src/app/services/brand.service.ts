@@ -11,4 +11,10 @@ export class BrandService extends BaseService<IBrand>{
   constructor(protected http:HttpClient) {
     super(http, 'brands')
    }
+
+   addBrand(brand:IBrand){
+    return this.httpClient.post(this.serverUrl,brand);
+   }
+
+   
 }

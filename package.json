@@ -20,6 +20,7 @@
     "@angular/platform-browser": "~11.0.9",
     "@angular/platform-browser-dynamic": "~11.0.9",
     "@angular/router": "~11.0.9",
+    "@auth0/angular-jwt": "^5.0.2",
     "@fortawesome/fontawesome-free": "^5.15.3",
     "ngx-toastr": "^13.2.1",
     "primeflex": "^2.0.0",
@@ -27,6 +28,7 @@
     "primeng": "^11.3.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
+    "url-polyfill": "^1.1.12",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {

@@ -1,0 +1,13 @@
+<div class="card">
+    <h5>Renk Ekle</h5>
+    <div class="p-fluid p-formgrid p-grid">
+        <div class="p-field p-col-12 p-md-9">
+            <form [formGroup]="colorAddForm">
+                <input id="colorName" formControlName="colorName" type="text" pInputText placeholder="Renk Adı" />
+            </form>
+        </div>
+        <div class="p-col-12 p-md-3">
+            <button (click)="add()" pButton label="Ekle"></button>
+        </div>
+    </div>
+</div>

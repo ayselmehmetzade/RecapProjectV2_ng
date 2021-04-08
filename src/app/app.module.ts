@@ -33,6 +33,7 @@ import {PanelModule} from 'primeng/panel';
 import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { TabViewModule } from 'primeng/tabview';
+import {MenuModule} from 'primeng/menu';
 import { DividerModule } from 'primeng/divider';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
@@ -96,6 +97,7 @@ export function tokenGetter() {
     TabViewModule,
     DividerModule,
     DropdownModule,
+    MenuModule,
     AccordionModule,
     CardModule,
     GalleriaModule,
@@ -108,7 +110,7 @@ export function tokenGetter() {
     DialogModule,
     CheckboxModule,
     ToastrModule.forRoot({
-      positionClass: "toast-top-right"
+      positionClass: "toast-bottom-right"
     }),
     JwtModule.forRoot({
       config: {

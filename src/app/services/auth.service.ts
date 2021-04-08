@@ -16,68 +16,71 @@ import { LocalstorageService } from './localstorage.service';
 })
 export class AuthService {
 
-  decodedTokenKey:any
-  user:Iuser;
+  decodedTokenKey: any
+  user: Iuser;
 
-  apiUrl = environment.apiUrl +'Auth/'
 
-  constructor(private httpClient:HttpClient, private localStorageService:LocalstorageService, private jwtHelper:JwtHelperService) { }
+  apiUrl = environment.apiUrl + 'Auth/'
 
-  login(login:ILogin):Observable<ISingleResponseModel<ITokenModels>>{
-    let newPath = this.apiUrl +'login';
-     return this.httpClient.post<ISingleResponseModel<ITokenModels>>(newPath,login);
+  constructor(private httpClient: HttpClient, private localStorageService: LocalstorageService, private jwtHelper: JwtHelperService) { }
+
+  login(login: ILogin): Observable<ISingleResponseModel<ITokenModels>> {
+    let newPath = this.apiUrl + 'login';
+    return this.httpClient.post<ISingleResponseModel<ITokenModels>>(newPath, login);
   }
 
-  register(register:IRegister):Observable<ISingleResponseModel<ITokenModels>>{
-    let newPath = this.apiUrl +'register';
-    return this.httpClient.post<ISingleResponseModel<ITokenModels>>(newPath,register);
+  register(register: IRegister): Observable<ISingleResponseModel<ITokenModels>> {
+    let newPath = this.apiUrl + 'register';
+    return this.httpClient.post<ISingleResponseModel<ITokenModels>>(newPath, register);
   }
 
-  decodedToken(token:any){
+  decodedToken(token: any) {
     return this.jwtHelper.decodeToken(token);
   }
 
-  isAdmin(){
-    let isAdmin=false;
-    if(this.loggedIn()){
-      this.user.roles?.map(role=>{
-        if(role.toLocaleLowerCase().indexOf("admin")!== -1){
-          isAdmin =true;
+  isAdmin() {
+    let isAdmin = false;
+    if (this.loggedIn()) {
+      this.user.roles?.map(role => {
+        if (role.toLocaleLowerCase().indexOf("admin") !== -1) {
+          isAdmin = true;
         }
       })
     }
     return isAdmin;
   }
-  
-  loggedIn(){
-    if(this.localStorageService.getToken()){
+
+  loggedIn() {
+    if (this.localStorageService.getToken()) {
+
       return this.jwtHelper.isTokenExpired();
     }
-    else{
+    else {
+
       return false;
     }
   }
 
-  getUser(){
+  getUser() {
     let decodedToken = this.decodedToken(this.localStorageService.getToken())
-    if(decodedToken){
-      if(this.loggedIn()){
-        let tokenInfonName = Object.keys(decodedToken).filter(x=> x.endsWith('/name'))[0]
+    if (decodedToken) {
+      if (this.loggedIn()) {
+        let tokenInfonName = Object.keys(decodedToken).filter(x => x.endsWith('/name'))[0]
         let userName = String(decodedToken[tokenInfonName])
 
-        let tokenInfoId= Object.keys(decodedToken).filter(x=> x.endsWith('/nameidentifier'))[0]
-        let userId= Number(decodedToken[tokenInfoId]);
+        let tokenInfoId = Object.keys(decodedToken).filter(x => x.endsWith('/nameidentifier'))[0]
+        let userId = Number(decodedToken[tokenInfoId]);
 
-        let claimInfo = Object.keys(decodedToken).filter(x=> x.endsWith('/role'))[0]
-        let roles= decodedToken[claimInfo];
+        let claimInfo = Object.keys(decodedToken).filter(x => x.endsWith('/role'))[0]
+        let roles = decodedToken[claimInfo];
 
-        let emailInfo= decodedToken.email; 
+        let emailInfo = decodedToken.email;
 
-        this.user={
-          userId:userId,
-          userName : userName,
-          email:emailInfo,
-          roles:roles
+        this.user = {
+          userId: userId,
+          userName: userName,
+          email: emailInfo,
+          roles: roles
         }
       }
     }

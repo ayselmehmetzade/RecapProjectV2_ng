@@ -43,10 +43,6 @@ export class CarComponent implements OnInit {
     this.carDetail.emit(e);
   }
 
-  // addToCart(car: ICar) {
-  //   console.log(car);
-  //   this.toastrService.success("Sepete Eklendi", car.brandText)
-  // }
 
   sendRent(e: ICar) {
     let renDetail = <IRentalDetail>{

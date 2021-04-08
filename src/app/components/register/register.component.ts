@@ -20,12 +20,9 @@ export class RegisterComponent implements OnInit {
     private toastrService:ToastrService,
     private localStorageService:LocalstorageService,
     private route:Router
-
-
   ) { }
 
   ngOnInit(): void {
-
     this.createRegisterForm();
   }
 
@@ -43,10 +40,8 @@ export class RegisterComponent implements OnInit {
      let registerModel = Object.assign({},this.registerForm.value);
      this.authService.register(registerModel).subscribe(response=>{
        this.toastrService.info(response.message,"registered")
-       this.localStorageService.saveToken(response.data.token)
        this.registerForm.reset();
-       this.authService.getUser();
-       this.route.navigate(['/']);
+       this.route.navigate(['/login']);
        this.toastrService.success(response.message,"Registered")
      },responseError=>{
        this.toastrService.error("valdiation exception")

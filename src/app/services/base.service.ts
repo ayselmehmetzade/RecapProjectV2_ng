@@ -33,7 +33,6 @@ export class BaseService<T> {
   }
 
   update(item: T): Observable<IListResponse<T>> {
-    let newPath = this.apiUrl + "brands/BrandUpdated"
     return this.httpClient.post<IListResponse<T>>(this.apiUrl+'update',item);
   }
 

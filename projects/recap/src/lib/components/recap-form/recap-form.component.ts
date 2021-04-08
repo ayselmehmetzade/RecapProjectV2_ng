@@ -20,12 +20,7 @@ export class RecapFormComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
-  ngOnChanges(){
-    
-  }
-
-  sendData(){
+  sendData() {
     this.update.emit("dilara");
   }
 

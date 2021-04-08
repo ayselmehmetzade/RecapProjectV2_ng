@@ -1,18 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IBrand } from '../interfaces/brand';
+import { ICreditCard } from '../interfaces/credit-card';
 import { BaseService } from './base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class BrandService extends BaseService<IBrand>{
+export class CreditCardService extends BaseService<ICreditCard> {
 
   constructor(protected http:HttpClient) {
-    super(http, 'brands')
+    super(http, 'creditcard')
    }
-
-  
-
-   
 }

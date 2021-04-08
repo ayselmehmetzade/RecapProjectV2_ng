@@ -29,6 +29,7 @@ import { JwtModule } from "@auth0/angular-jwt";
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
+import {PanelModule} from 'primeng/panel';
 import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { TabViewModule } from 'primeng/tabview';
@@ -99,6 +100,7 @@ export function tokenGetter() {
     CardModule,
     GalleriaModule,
     RecapModule,
+    PanelModule,
     ListboxModule,
     InputMaskModule,
     StepsModule,

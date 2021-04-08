@@ -1,4 +1,4 @@
-<div class="card">
+<!-- <div class="card">
     <h5>Signing</h5>
     <div class="p-fluid p-formgrid p-grid">
         <div class="p-field p-col-12 p-md-9">
@@ -17,4 +17,38 @@
             <button pButton pRipple (click)="login()" type="button" label="Submit"></button>
         </div>
     </div>
+</div> -->
+<div class="p-col-12 p-md-4 p-offset-4 " style="position: absolute; bottom: 50%;">
+    <p-panel header="Login">
+        <form novalidate [formGroup]="loginForm">
+            <div class="p-fluid">
+                <div class="p-field p-col-12 p-md-12">
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <span class="p-float-label">
+                            <input id="email" formControlName="email" type="email" pInputText />
+                            <label for="email">Email</label>
+                        </span>
+                    </div>
+                </div>
+                <div class="p-field p-col-12 p-md-12">
+                    <div class="p-inputgroup">
+                        <span class="p-inputgroup-addon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <span class="p-float-label">
+                            <input id="password" formControlName="password" type="password" pInputText/>
+                            <label for="password">Password</label>
+                        </span>
+                    </div>
+                </div>
+         
+                <div class="p-col-12">
+                    <button pButton type="button" label="Login" (click)="login()"></button>
+                </div>
+            </div>
+        </form>
+    </p-panel>
 </div>

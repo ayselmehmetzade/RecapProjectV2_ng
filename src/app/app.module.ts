@@ -22,6 +22,9 @@ import { RentalDetailComponent } from './components/rental-detail/rental-detail.
 import { AppMenuTopComponent } from './app-menu.component';
 import { CarOperationComponent } from './components/car-operation/car-operation.component';
 import { LoginComponent } from './components/login/login.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
+import { RegisterComponent } from './components/register/register.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { JwtModule } from "@auth0/angular-jwt";
 
@@ -29,11 +32,11 @@ import { JwtModule } from "@auth0/angular-jwt";
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import {PanelModule} from 'primeng/panel';
+import { PanelModule } from 'primeng/panel';
 import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { TabViewModule } from 'primeng/tabview';
-import {MenuModule} from 'primeng/menu';
+import { MenuModule } from 'primeng/menu';
 import { DividerModule } from 'primeng/divider';
 import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
@@ -47,9 +50,7 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ListboxModule } from 'primeng/listbox';
 import { AccordionModule } from 'primeng/accordion';
-import { BrandAddComponent } from './components/brand-add/brand-add.component';
-import { ColorAddComponent } from './components/color-add/color-add.component';
-import { RegisterComponent } from './components/register/register.component';
+
 
 
 

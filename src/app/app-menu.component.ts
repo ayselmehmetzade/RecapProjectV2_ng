@@ -11,10 +11,7 @@ import { LocalstorageService } from './services/localstorage.service';
     template: `
     <ng-container  *ngIf="isAuthenticated()">
         <p-menubar [model]="items">
-            <!-- <div>
-                <button type="button" pButton label="Logout" icon="pi pi-power-off" style="margin-left:.25em" (click)="logOut()"></button>
-            </div> -->
-            <button type="button" pButton pRipple icon="pi pi-bars" label="{{user.userName}}" (click)="menu.toggle($event)"></button>
+            <button type="button" class="p-button-secondary" pButton pRipple icon="pi pi-bars" label="{{user.userName}}" (click)="menu.toggle($event)"></button>
             <p-menu appendTo="body" #menu [popup]="true" [model]="items1"></p-menu>
        </p-menubar>
     </ng-container>`,

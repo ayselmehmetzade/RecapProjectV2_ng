@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-payment',
@@ -16,8 +16,13 @@ export class PaymentComponent implements OnInit {
   }
   creatForm(){
     this.paymentForm= this.formBuilder.group({
-      
-    })
+      customerId:["",Validators.required],
+      fullName:["",Validators.required],
+      expiryMonth:["",Validators.required],
+      expiryYear:["",Validators.required],
+      cvc:["",Validators.required],
+      type:["",Validators.required]
+    });
   }
 
 }

@@ -5,7 +5,7 @@ import { MenuItem } from 'primeng/api';
 import { Iuser } from './interfaces/user';
 import { AuthService } from './services/auth.service';
 import { LocalstorageService } from './services/localstorage.service';
-
+//deneme
 @Component({
     selector: 'app-menu-top',
     template: `

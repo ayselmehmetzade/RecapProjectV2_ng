@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IRental } from 'src/app/interfaces/rental';
 
 @Component({
   selector: 'app-payment',
@@ -9,6 +10,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class PaymentComponent implements OnInit {
 
   paymentForm: FormGroup;
+  @Input() rentForPayment : IRental;
+
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
@@ -18,10 +21,9 @@ export class PaymentComponent implements OnInit {
     this.paymentForm= this.formBuilder.group({
       customerId:["",Validators.required],
       fullName:["",Validators.required],
-      expiryMonth:["",Validators.required],
-      expiryYear:["",Validators.required],
+      expiryDate:["",Validators.required],
+      cardNumber:["",Validators.required],
       cvc:["",Validators.required],
-      type:["",Validators.required]
     });
   }
 

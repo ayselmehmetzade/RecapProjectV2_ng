@@ -2,6 +2,9 @@ import { Component, Input, OnInit } from '@angular/core';
 import { IRentalDetail } from 'src/app/interfaces/rental-detail';
 import { MenuItem } from 'primeng/api';
 import { RentalDetailService } from 'src/app/services/rental-detail.service';
+import { IRental } from 'src/app/interfaces/rental';
+import { LocalstorageService } from 'src/app/services/localstorage.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-rental-detail',
@@ -12,13 +15,12 @@ export class RentalDetailComponent implements OnInit {
   nowValue: Date;
   rentDate: Date;
   returnDate: Date;
-
+  rent:IRental;
   items: MenuItem[];
-
   minReturn: Date = new Date();
 
 
-  constructor(public rentService: RentalDetailService) { }
+  constructor(public rentService: RentalDetailService, private authService:AuthService) { }
 
   ngOnInit(): void {
 
@@ -47,6 +49,20 @@ export class RentalDetailComponent implements OnInit {
     if (this.rentService.value.returnDate && this.rentService.value.returnDate.getTime() < rentDate.getTime()) {
       this.rentService.value.returnDate=rentDate;
     }
+  }
+  createRent(){
+    this.rentService.activeIndex=1
+    let id= this.authService.user.userId;
+    // console.log(this.carForRent);    
+    let rent: IRental={
+      customerId:id,
+      rentDate:this.rentDate,
+      returnDate:this.returnDate,
+      carId:this.rentService.value.carId
+    }
+    this.rent=rent;
+    // console.log(rent);
+    
   }
 
 }

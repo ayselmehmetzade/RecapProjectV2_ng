@@ -15,7 +15,7 @@
                         [showIcon]="true" [readonlyInput]="true" dateFormat="dd.mm.yy" [showButtonBar]="true">
                     </p-calendar>
                 </div>
-                <button (click)="rentService.activeIndex=1" class="p-button-outlined" pButton label="Next"></button>
+                <button (click)="createRent()" class="p-button-outlined" pButton label="Next"></button>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
         <div class="p-col-12">
             <div class="p-fluid">
                 <div class="p-field">
-                    <app-payment></app-payment>
+                    <app-payment [rentForPayment]="rent"></app-payment>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-export interface IFindeks {
+export interface IPayment {
     id:number;
     customerId:number;
     identity:string;

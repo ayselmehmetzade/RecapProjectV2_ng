@@ -1,21 +1,21 @@
 <div *ngIf="rentService.isNew; else detail">
-
     <p-steps [activeIndex]="rentService.activeIndex" [model]="items" [readonly]="false"></p-steps>
-
     <div *ngIf="rentService.activeIndex==0" class="p-d-flex">
         <div class="p-col-12">
             <div class="p-fluid">
                 <div class="p-field">
                     <label for="rent">Rent Date</label>
-                    <p-calendar [(ngModel)]="rentService.value.rentDate" (onSelect)="rentSelect($event)" [minDate]="nowValue" appendTo="body" [readonlyInput]="true" dateFormat="dd.mm.yy"
+                    <p-calendar [(ngModel)]="rentService.value.rentDate" (onSelect)="rentSelect($event)"
+                        [minDate]="nowValue" appendTo="body" [readonlyInput]="true" dateFormat="dd.mm.yy"
                         [showIcon]="true" [showButtonBar]="true"></p-calendar>
                 </div>
                 <div class="p-field">
                     <label for="return">Return Date</label>
-                    <p-calendar [(ngModel)]="rentService.value.returnDate" appendTo="body" [minDate]="minReturn" [showIcon]="true" [readonlyInput]="true"
-                        dateFormat="dd.mm.yy" [showButtonBar]="true"></p-calendar>
+                    <p-calendar [(ngModel)]="rentService.value.returnDate" appendTo="body" [minDate]="minReturn"
+                        [showIcon]="true" [readonlyInput]="true" dateFormat="dd.mm.yy" [showButtonBar]="true">
+                    </p-calendar>
                 </div>
-                <button (click)="rentService.activeIndex=1" pButton label="Next"></button>
+                <button (click)="rentService.activeIndex=1" class="p-button-outlined" pButton label="Next"></button>
             </div>
         </div>
     </div>
@@ -24,13 +24,10 @@
             <div class="p-fluid">
                 <div class="p-field">
                     <app-payment></app-payment>
-                    <!-- <p-calendar [(ngModel)]="rentService.value.rentDate" [minDate]="nowValue" [readonlyInput]="true" dateFormat="dd.mm.yy"
-                        [showIcon]="true" [showButtonBar]="true"></p-calendar> -->
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
 <ng-template #detail>
@@ -50,5 +47,5 @@
                 <button pButton label="Close"></button>
             </div>
         </div>
-    </div>            
+    </div>
 </ng-template>

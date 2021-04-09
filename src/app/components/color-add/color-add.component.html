@@ -1,13 +1,17 @@
-<div class="card">
-    <h5>Color Add</h5>
-    <div class="p-fluid p-formgrid p-grid">
-        <div class="p-field p-col-12 p-md-9">
-            <form [formGroup]="colorAddForm">
-                <input id="colorName" formControlName="colorName" type="text" pInputText placeholder="Color Name" />
-            </form>
-        </div>
-        <div class="p-col-12 p-md-3">
-            <button (click)="add()" pButton label="Add"></button>
-        </div>
-    </div>
+<div class="p-col-12 p-md-4 p-offset-4 " style="position: absolute; bottom: 50%;">
+    <p-panel header="Color Add">
+        <form novalidate [formGroup]="colorAddForm">
+            <div class="p-fluid">
+                <div class="p-field p-col-12 p-md-12">
+                    <span class="p-float-label">
+                        <input id="colorName" formControlName="colorName" type="text" pInputText />
+                        <label for="colorName">Color Name</label>
+                    </span>
+                </div>
+                <div class="p-col-12">
+                    <button pButton class="p-button-outlined p-button-success" type="button" label="Add" (click)="add()"></button>
+                </div>
+            </div>
+        </form>
+    </p-panel>
 </div>

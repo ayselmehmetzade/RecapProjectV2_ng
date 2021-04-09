@@ -45,12 +45,12 @@ export class CarComponent implements OnInit {
 
 
   sendRent(e: ICar) {
-    let renDetail = <IRentalDetail>{
+    let rentDetail = <IRentalDetail>{
       carId: e.id
     }
 
     this.rentService.activeIndex=0;
-    this.rentService.value = renDetail;
+    this.rentService.value = rentDetail;
     this.rentService.isNew = true;
     this.rentService.isShow = true;
   }

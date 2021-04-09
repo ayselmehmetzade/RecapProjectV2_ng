@@ -2,24 +2,31 @@
 <p-table #dt [value]="[0]">
   <ng-template pTemplate="header">
       <tr>
-          <th>Color Id</th>
+          <!-- <th>Color Id</th> -->
           <th>Color Name</th>
+          <th>Color Add</th>
+          <th>Color Update</th>
       </tr>
       <tr>
-          <th>               
-          </th>
+          <!-- <th></th> -->
           <th>
               <input pInputText type="text" [(ngModel)]="colorFilterText" class="form-control" id="colorFilterText"
-              placeholder="Arama İfadesi" />
+              placeholder="Search" />
           </th>
+          <th></th>
+          <th></th>
       </tr>
   </ng-template>
   <ng-template pTemplate="body">
       <tr *ngFor="let color of colors | colorFilter:colorFilterText">
-          <td>{{ color.colorId }}</td>
+          <!-- <td>{{ color.colorId }}</td> -->
           <td>{{ color.colorName }}</td>
           <td>
-              <button pButton pRipple type="button" label="Güncelle"
+            <button routerLink="add" pButton pRipple type="button" label="Add"
+            class="p-button-outlined p-button-secondary"></button>
+          </td>
+          <td>
+              <button pButton pRipple type="button" label="Update"
                   class="p-button-outlined p-button-secondary"></button>
           </td>
       </tr>

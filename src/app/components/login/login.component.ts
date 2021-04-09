@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
          this.authService.decodedTokenKey = this.authService.decodedToken(response.data.token);
          this.authService.getUser();
          this.router.navigate(["/cars"]);
-         this.toastrService.success("Logged In")
+         this.toastrService.info("Logged In")
        }, responseError=>{
          this.toastrService.error(responseError.errors,"password Invalid");
          

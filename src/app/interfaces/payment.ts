@@ -1,6 +1,6 @@
 export interface IPayment {
-    id:number;
+    id?:number;
+    creditCardNumber:string;
     customerId:number;
-    identity:string;
-    score:number
+    price:number;
 }

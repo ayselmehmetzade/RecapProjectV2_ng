@@ -28,11 +28,10 @@ export class RentalDetailComponent implements OnInit {
       { label: 'Rental Dates' },
       { label: 'Payment' }
     ];
-
     this.setData();
   }
 
-  setData() {
+  setData() {       
     this.nowValue = new Date();
     this.rentDate = this.rentService.value ? this.rentService.value.rentDate : this.nowValue;
     this.returnDate = this.rentService.value ? this.rentService.value.returnDate : null;
@@ -60,9 +59,7 @@ export class RentalDetailComponent implements OnInit {
       returnDate:this.returnDate,
       carId:this.rentService.value.carId
     }
-    this.rent=rent;
- 
-    
+    this.rent=rent;    
   }
 
 }

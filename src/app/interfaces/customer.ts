@@ -1,5 +1,5 @@
 export interface ICustomer {
-    customerId: number;
+    customerId?: number;
     userId: number;
     companyName: string;
 }

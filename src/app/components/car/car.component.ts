@@ -51,5 +51,6 @@ export class CarComponent implements OnInit {
     this.rentService.value = rentDetail;
     this.rentService.isNew = true;
     this.rentService.isShow = true;
+    this.rentService.car=e;
   }
 }

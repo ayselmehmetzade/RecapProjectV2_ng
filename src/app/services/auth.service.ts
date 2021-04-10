@@ -19,10 +19,12 @@ export class AuthService {
   decodedTokenKey: any
   user: Iuser;
 
-
   apiUrl = environment.apiUrl + 'Auth/'
 
-  constructor(private httpClient: HttpClient, private localStorageService: LocalstorageService, private jwtHelper: JwtHelperService) { }
+  constructor(
+    private httpClient: HttpClient, 
+    private localStorageService: LocalstorageService,     
+    private jwtHelper: JwtHelperService) { }
 
   login(login: ILogin): Observable<ISingleResponseModel<ITokenModels>> {
     let newPath = this.apiUrl + 'login';
@@ -50,13 +52,20 @@ export class AuthService {
     return isAdmin;
   }
 
+  isAuthenticated(){
+    if (this.localStorageService.getToken()) {
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+  
   loggedIn() {
     if (this.localStorageService.getToken()) {
-
       return this.jwtHelper.isTokenExpired();
     }
     else {
-
       return false;
     }
   }

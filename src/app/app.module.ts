@@ -2,9 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -23,32 +22,31 @@ import { CarOperationComponent } from './components/car-operation/car-operation.
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PaymentComponent } from './components/payment/payment.component';
-import { JwtModule } from "@auth0/angular-jwt";
 
 
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
-import { PanelModule } from 'primeng/panel';
 import { InputTextModule } from 'primeng/inputtext';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { TabViewModule } from 'primeng/tabview';
 import { MenuModule } from 'primeng/menu';
 import { DividerModule } from 'primeng/divider';
-import { CardModule } from 'primeng/card';
 import { DropdownModule } from 'primeng/dropdown';
 import { GalleriaModule } from 'primeng/galleria';
+import {CardModule} from 'primeng/card';
 import { ToastrModule } from 'ngx-toastr';
-import { RecapModule } from 'projects/recap/src/public-api';
 import { DialogModule } from 'primeng/dialog';
 import { CalendarModule } from 'primeng/calendar';
 import { StepsModule } from 'primeng/steps';
+import {PanelModule} from 'primeng/panel';
 import { InputMaskModule } from 'primeng/inputmask';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ListboxModule } from 'primeng/listbox';
-import { AccordionModule } from 'primeng/accordion';
 
-
+import { RecapModule } from 'projects/recap/src/public-api';
+import { JwtModule } from "@auth0/angular-jwt";
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 
 export function tokenGetter() {
@@ -89,20 +87,19 @@ export function tokenGetter() {
     InputTextModule,
     BrowserAnimationsModule,
     MultiSelectModule,
+    PanelModule,
     TabViewModule,
     DividerModule,
     DropdownModule,
     MenuModule,
-    AccordionModule,
-    CardModule,
     GalleriaModule,
     RecapModule,
-    PanelModule,
     ListboxModule,
     InputMaskModule,
     StepsModule,
     CalendarModule,
     DialogModule,
+    CardModule,
     CheckboxModule,
     ToastrModule.forRoot({
       positionClass: "toast-bottom-right"
@@ -113,10 +110,10 @@ export function tokenGetter() {
         allowedDomains: ["http://localhost:4200/"]
       },
     }),
-
-
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

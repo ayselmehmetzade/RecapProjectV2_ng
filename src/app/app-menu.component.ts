@@ -28,7 +28,7 @@ export class AppMenuTopComponent {
     constructor(private authService: AuthService, private localStorage: LocalstorageService, private toastrservice: ToastrService, private route: Router) {
         this.items = [
             {
-                label: 'Rent A Car', url: "/"
+                label: 'Rent A Car'
             },
             {
                 label: 'CarList', icon: 'fa fa-car', url: 'cars'

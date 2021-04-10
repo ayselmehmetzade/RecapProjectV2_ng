@@ -8,15 +8,16 @@ import { CustomerComponent } from './components/customer/customer.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RentalDetailComponent } from './components/rental-detail/rental-detail.component';
+import { LoginGuard } from './guards/login.guard';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LoginComponent },
   { path: 'cars', component: CarOperationComponent },
-  { path: 'colors', component: ColorComponent },
+  { path: 'colors', component: ColorComponent,canActivate:[LoginGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'customers', component: CustomerComponent},
-  { path: 'brands', component: BrandComponent },
+  { path: 'brands', component: BrandComponent, canActivate:[LoginGuard] },
   { path: 'cardetails', component: CarDetailComponent },
   { path: 'rentaldetails', component: RentalDetailComponent },
 ];

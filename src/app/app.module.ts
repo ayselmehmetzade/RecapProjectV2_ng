@@ -10,7 +10,6 @@ import { AppComponent } from './app.component';
 
 import { BrandFilterPipe } from './pipes/brand-filter.pipe';
 import { ColorFilterPipe } from './pipes/color-filter.pipe';
-import { CarDetailFilterPipe } from './pipes/car-detail-filter.pipe';
 import { BrandComponent } from './components/brand/brand.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { CarImageComponent } from './components/car-image/car-image.component';
@@ -22,8 +21,6 @@ import { RentalDetailComponent } from './components/rental-detail/rental-detail.
 import { AppMenuTopComponent } from './app-menu.component';
 import { CarOperationComponent } from './components/car-operation/car-operation.component';
 import { LoginComponent } from './components/login/login.component';
-import { BrandAddComponent } from './components/brand-add/brand-add.component';
-import { ColorAddComponent } from './components/color-add/color-add.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { JwtModule } from "@auth0/angular-jwt";
@@ -65,7 +62,6 @@ export function tokenGetter() {
     AppComponent,
     BrandFilterPipe,
     ColorFilterPipe,
-    CarDetailFilterPipe,
     BrandComponent,
     CarDetailComponent,
     CarImageComponent,
@@ -78,8 +74,6 @@ export function tokenGetter() {
     CarOperationComponent,
     LoginComponent,
     PaymentComponent,
-    BrandAddComponent,
-    ColorAddComponent,
     RegisterComponent
   ],
   imports: [

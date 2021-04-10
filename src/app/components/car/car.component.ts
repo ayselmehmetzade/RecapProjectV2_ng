@@ -31,8 +31,6 @@ export class CarComponent implements OnInit {
       this.brandOptions = [...new Set(this.cars.map(b => b.brandText))].map(x => {
         return { label: x, value: x }
       }).sort((a, b) => (a.label > b.label ? 1 : -1));
-      // console.log(this.cars.map(c => c.colorText));
-      // console.log([...new Set(this.cars.map(c => c.colorText))]);
       this.colorOptions = [...new Set(this.cars.map(c => c.colorText))].map(x => {
         return { label: x, value: x }
       }).sort((a, b) => (a.label > b.label ? 1 : -1));

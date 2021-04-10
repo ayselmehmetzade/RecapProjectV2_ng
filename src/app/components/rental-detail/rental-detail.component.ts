@@ -53,7 +53,7 @@ export class RentalDetailComponent implements OnInit {
   createRent(){
     this.rentService.activeIndex=1
     let id= this.authService.user.userId;
-    // console.log(this.carForRent);    
+ 
     let rent: IRental={
       customerId:id,
       rentDate:this.rentDate,
@@ -61,7 +61,7 @@ export class RentalDetailComponent implements OnInit {
       carId:this.rentService.value.carId
     }
     this.rent=rent;
-    // console.log(rent);
+ 
     
   }
 

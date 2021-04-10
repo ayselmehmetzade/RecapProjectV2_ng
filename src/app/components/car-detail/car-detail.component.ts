@@ -54,15 +54,10 @@ export class CarDetailComponent implements OnInit {
     if (this.car) {
       this.images = [];
       this.carImageService.getImagesByCarId(this.car.id).subscribe(response => {
-        console.log(response);
         this.createForm();
         this.images = response.data;
       })
     }
-  }
-
-  test(e) {
-    console.log(e);
   }
 
   sendRent() {   

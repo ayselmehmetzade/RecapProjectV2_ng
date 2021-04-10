@@ -11,28 +11,46 @@ import { BrandService } from 'src/app/services/brand.service';
 })
 export class BrandComponent implements OnInit {
   brands: IBrand[] = [];
-  cols: any[];
+  brand: IBrand;
+  showUpdateForm:boolean;
+  showAddForm:boolean;
   brandFilterText="";
-  displayBasic:boolean;
   brandAddForm: FormGroup;
+  brandUpdateForm: FormGroup
   constructor(private brandService: BrandService, private formbuilder:FormBuilder, private toastrService:ToastrService ) { }
 
   ngOnInit(): void {
       this.getBrands();
-      this.createForm();
+      this.createAddForm();
+      this.createUpdateForm();
   }
-  createForm(){
+
+  getBrands() {
+    this.brandService.getAll().subscribe(response => {
+      this.brands = response.data;
+    })
+  }
+
+  updateBrand(brand:IBrand){
+    this.showUpdateForm = true;
+    this.brand=brand; 
+    this.brandUpdateForm.patchValue({
+      brandId:this.brand.brandId,
+    })  
+  }
+  createAddForm(){
     this.brandAddForm=this.formbuilder.group({
       brandName:["",Validators.required]
     })
-  }  
-
+  }
   add(){
     if(this.brandAddForm.valid){
       let brandModel=Object.assign({}, this.brandAddForm.value);
-      console.log(brandModel);
       this.brandService.addItem(brandModel).subscribe(response=>{
         this.toastrService.success(response.message,"eklendi")
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
       })
     }
     else{
@@ -40,13 +58,40 @@ export class BrandComponent implements OnInit {
     }    
   }
 
-  showBrandDialog() {
-    this.displayBasic = true;
-}
-  getBrands() {
-    this.brandService.getAll().subscribe(response => {
-      this.brands = response.data;
+  createUpdateForm(){ 
+    this.brandUpdateForm=this.formbuilder.group({
+      brandId:[""],
+      brandName:["",Validators.required]
     })
   }
+
+  updateForBrand(){
+    if(this.brandUpdateForm.valid){
+      let brandModel=Object.assign({},this.brandUpdateForm.value)
+      this.brandService.update(brandModel).subscribe(response=>{
+        this.toastrService.success(response.message,"Güncellendi")
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      }, responseError=>{
+        this.toastrService.error("Güncellenemedi","Dikkat")
+      })
+    }
+  }  
+
+    deleteBrand(brand: IBrand) {
+      this.brandService.delete(brand).subscribe(
+        (response) => {
+          this.toastrService.success('Silme işlemi başarılı');
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
   
+        },
+        (responseError) => {
+          this.toastrService.error(responseError.errors, 'İşlem Başarısız');
+        }
+      );
+    
+  }
 }

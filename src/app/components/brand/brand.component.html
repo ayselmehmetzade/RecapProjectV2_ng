@@ -1,40 +1,45 @@
 <p-table #dt [value]="[0]">
     <ng-template pTemplate="header">
         <tr>
-            <!-- <th>Brand Id</th> -->
             <th>Brand Name</th>
             <th>Brand Add</th>
             <th>Brand Update</th>
+            <th>Brand Delete</th>
         </tr>
         <tr>
-            <!-- <th></th> -->
             <th>
                 <input pInputText type="text" [(ngModel)]="brandFilterText" class="form-control" id="brandFilterText"
                     placeholder="Search" />
             </th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
     </ng-template>
     <ng-template pTemplate="body">
         <tr *ngFor="let brand of brands | brandFilter:brandFilterText">
-            <!-- <td>{{ brand.brandId }}</td> -->
             <td>{{ brand.brandName }}</td>
             <td>
-                <button (click)="showBrandDialog()" routerLink="add" pButton pRipple type="button" label="Add"
+                <button (click)="showAddForm=true" pButton pRipple type="button" label="Add"
                     class="p-button-outlined p-button-secondary"></button>
             </td>
             <td>
-                <button pButton pRipple type="button" label="Update"
+                <button pButton pRipple type="button" (click)="updateBrand(brand)" label="Update"
+                    class="p-button-outlined p-button-secondary"></button>
+            </td>
+            <td>
+                <button pButton pRipple type="button" (click)="deleteBrand(brand)" label="Delete"
                     class="p-button-outlined p-button-secondary"></button>
             </td>
         </tr>
     </ng-template>
 </p-table>
-<!-- <p-dialog header="Header" [(visible)]="displayBasic" [style]="{width: '50vw'}" [baseZIndex]="10000">
-    <div class="p-col-12 p-md-4 p-offset-4">
-        <form novalidate [formGroup]="brandAddForm">
-            <div class="p-fluid">
+
+<!-- BrandAdd -->
+<p-dialog header="Brand Update" [(visible)]="showAddForm" [style]="{width: '50vw'}" [baseZIndex]="10000">
+    <form novalidate [formGroup]="brandAddForm">
+        <div class="p-col-12">
+            <div class="p-fluid p-col-12">
                 <div class="p-field p-col-12 p-md-12">
                     <span class="p-float-label">
                         <input id="brandName" formControlName="brandName" type="text" pInputText />
@@ -42,13 +47,29 @@
                     </span>
                 </div>
                 <div class="p-col-12">
-                    <button pButton class="p-button-outlined p-button-success" type="button" label="Add"
-                        (click)="add()"></button>
+                    <button pButton class="p-button-outlined p-button-success" type="button" label="Add" (click)="add()"></button>
                 </div>
             </div>
-        </form>
-    </div>
-    <ng-template pTemplate="footer">
-        <p-button icon="pi pi-times" (click)="displayBasic=false" label="No"></p-button>
-    </ng-template>
-</p-dialog> -->
+        </div>
+   
+    </form>
+</p-dialog>
+
+<!-- BrandUpdate -->
+<p-dialog header="Brand Update" [(visible)]="showUpdateForm" [style]="{width: '50vw'}" [baseZIndex]="10000">
+            <form novalidate [formGroup]="brandUpdateForm">
+                <div class="p-col-12">
+                    <div class="p-fluid p-col-12" >
+                        <div class="p-field p-col-12 p-md-12">
+                            <span class="p-float-label">
+                                <input id="brandName" formControlName="brandName" type="text" pInputText />
+                                <label for="brandName">Brand Name</label>
+                            </span>
+                        </div>
+                        <div class="p-col-12 p-md-12">
+                            <button pButton class="p-button-outlined p-button-success" type="button" label="Update" (click)="updateForBrand()"></button>
+                        </div>
+                    </div>
+                </div>            
+            </form>
+</p-dialog>

@@ -39,9 +39,7 @@ export class AppMenuTopComponent {
             {
                 label: 'ColorList', icon: 'fas fa-palette', url: 'colors'
             },
-            {
-                label: 'RentalList', icon: 'far fa-handshake'
-            },
+          
         ];
         this.items1 = [
             { label: 'Update', icon: 'pi pi-fw pi-refresh', url:'user/update' },

@@ -21,15 +21,15 @@
             <td>{{ brand.brandName }}</td>
             <td>
                 <button (click)="showAddForm=true" pButton pRipple type="button" label="Add"
-                    class="p-button-outlined p-button-secondary"></button>
+                    class="p-button-outlined p-button-secondary" [disabled]="roles.indexOf('brand.operation')!==1"></button>
             </td>
             <td>
-                <button pButton pRipple type="button" (click)="updateBrand(brand)" label="Update"
-                    class="p-button-outlined p-button-secondary"></button>
+                <button  pButton pRipple type="button" (click)="updateBrand(brand)" label="Update"
+                    class="p-button-outlined p-button-secondary" [disabled]="roles.indexOf('brand.operation')!==1"></button>
             </td>
             <td>
                 <button pButton pRipple type="button" (click)="deleteBrand(brand)" label="Delete"
-                    class="p-button-outlined p-button-secondary"></button>
+                    class="p-button-outlined p-button-secondary" [disabled]="roles.indexOf('brand.operation')!==1"></button>
             </td>
         </tr>
     </ng-template>

@@ -1,27 +1,60 @@
-# RecapProject
+# Car Rental Company - Rent  A Car
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.7.
+This project is an online car rental project. 
 
-## Development server
+### Tecnologies
+- Angular 11
+- TypeScript
+- Primeng
+- Angular/cdk
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### FrontendTechniques
+- Pipe
+- JWT
+- Service
+- ToastrService
+- Fontawesome
 
-## Code scaffolding
+### Images
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+##### Login/ Register
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/1login.png" />
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/2register.png" />
+##### Login/ Register update
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/userupdate2.png" />
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/sifrechanges.png" />
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/userupdate.png" />
+##### Main and Car List page
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/rental.png" />
+##### Car filter page
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/filter.png" />
+##### CarDetail page
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/detay1.png" />
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/detay2.png" />
+##### Brand page
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/brandaddd.png" />
+##### Brand filter page
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/filterbrand.png" />
+##### Brand Add page
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/brandekledi.png" />
+##### Brand Role
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/brandd.png" />
+##### Brand Update page
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/updatebrand.png" />
+##### Color page
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/color.png" />
+##### Color filter page
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/colorfilter.png" />
+##### Rent page
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/detay3.png" />
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/kiralama.png" />
+##### Payment page
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/payment.png" />
+##### Findeks Error
+<img src="https://github.com/ayselmehmetzade/RecapProjectV2_ng/blob/master/readme/findeks%20yetersiz.png" />
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

@@ -70,5 +70,6 @@ export class CarDetailComponent implements OnInit {
     this.rentService.value = renDetail;
     this.rentService.isNew = true;
     this.rentService.isShow = true;
+    this.rentService.checkFindeksScore(this.car.id);
   }
 }

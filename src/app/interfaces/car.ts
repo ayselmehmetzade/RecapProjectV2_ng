@@ -9,4 +9,5 @@ export interface ICar {
     description: string;
     isRented:boolean;
     returnDate:string;
+    minFindeks:number;
 }

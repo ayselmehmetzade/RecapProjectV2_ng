@@ -7,4 +7,5 @@ export interface ICarDetail {
     colorName: string;
     dailyPrice: number;
     description: string;
+    minFindeks:number;
 }

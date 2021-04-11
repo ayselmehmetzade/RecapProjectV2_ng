@@ -20,7 +20,7 @@ export class PaymentComponent implements OnInit {
   @Input() rentForPayment: IRental;
   payment: IPayment;
   customerId: number;
-
+  checked: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -28,7 +28,7 @@ export class PaymentComponent implements OnInit {
     private toastrService: ToastrService,
     private paymentService: PaymentService,
     private authService: AuthService,
-    private creditCardService : CreditCardService,
+    private creditCardService: CreditCardService,
     private rentService: RentalDetailService) { }
 
   ngOnInit(): void {
@@ -41,6 +41,7 @@ export class PaymentComponent implements OnInit {
       expiryDate: ["", Validators.required],
       cardNumber: ["", Validators.required],
       cvc: ["", Validators.required],
+      check:[false]
     });
   }
 
@@ -55,20 +56,25 @@ export class PaymentComponent implements OnInit {
       }
       this.paymentService.addItem(payment).subscribe(response => {
         this.toastrService.success("Başarılı")
-        this.rentService.value.customerId=this.customerService.customer.customerId     
-        this.customerId=this.rentService.value.customerId;   
-        this.rentService.addItem(this.rentService.value).subscribe(response=>{
+        this.rentService.value.customerId = this.customerService.customer.customerId
+        this.customerId = this.rentService.value.customerId;
+        this.rentService.addItem(this.rentService.value).subscribe(response => {
           this.toastrService.success("kiralama başarılı")
         })
-      })    
-      let creditCardModel=Object.assign({},this.creditCardForm.value);
-      creditCardModel.customerId=this.customerService.customer.customerId;
-      this.creditCardService.addItem(creditCardModel).subscribe(response=>{
-        this.toastrService.success("kredi kartı kaydetme başarılı")
-      })  
-      this.rentService.isShow = false;   
-    })  
-      
+      })
+      if (this.creditCardForm.controls["check"].value) {        
+        let creditCardModel = Object.assign({}, this.creditCardForm.value);
+        creditCardModel.customerId = this.customerService.customer.customerId;
+        this.creditCardService.addItem(creditCardModel).subscribe(response => {
+          this.toastrService.success("kredi kartı kaydetme başarılı")
+        })
+        this.rentService.isShow = false;
+      }
+    })
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
   }
+ 
 
 }

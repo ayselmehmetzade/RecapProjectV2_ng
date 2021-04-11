@@ -24,13 +24,14 @@
                     <div class="p-field p-col-2">
                         <label for="cvv">CVV</label>
                         <p-inputMask id="cvv" formControlName="cvc" mask="999" ></p-inputMask>
-                    </div>
-                    <!-- <div class="p-field-checkbox p-col-12">
-                        <p-checkbox id="remember" [binary]="true"></p-checkbox>
+                    </div>    
+                    <div class="p-field-checkbox p-col-12">
+                        <p-checkbox [formControl]="creditCardForm.controls['check']" id="remember" [(ngModel)]="checked"></p-checkbox>
                         <label for="remember" class="p-checkbox-label">Save credit card information for future</label>
-                    </div> -->
+                    </div>              
                 </div>
-            </form>         
+            </form>      
+              
         </ng-template>
         <ng-template pTemplate="footer">
             <div class="p-grid p-nogutter p-justify-between">

@@ -44,7 +44,7 @@ export class AppMenuTopComponent {
             },
         ];
         this.items1 = [
-            { label: 'Update', icon: 'pi pi-fw pi-refresh' },
+            { label: 'Update', icon: 'pi pi-fw pi-refresh', url:'user/update' },
             { label: 'Log Out', icon: 'pi pi-power-off', command: () => { this.logOut(); } }
         ];
     }

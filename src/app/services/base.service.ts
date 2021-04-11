@@ -25,7 +25,7 @@ export class BaseService<T> {
   }
 
   getById(id: any): Observable<IListResponse<T>> {
-    return this.httpClient.get<IListResponse<T>>(this.apiUrl + id);
+    return this.httpClient.get<IListResponse<T>>(this.apiUrl + 'getbyid' + id);
   }
 
   delete(item:T): Observable<IListResponse<T>> {

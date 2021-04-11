@@ -47,6 +47,7 @@ import { ListboxModule } from 'primeng/listbox';
 import { RecapModule } from 'projects/recap/src/public-api';
 import { JwtModule } from "@auth0/angular-jwt";
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { UserUpdateComponent } from './components/user-update/user-update.component';
 
 
 export function tokenGetter() {
@@ -72,7 +73,8 @@ export function tokenGetter() {
     CarOperationComponent,
     LoginComponent,
     PaymentComponent,
-    RegisterComponent
+    RegisterComponent,
+    UserUpdateComponent
   ],
   imports: [
     BrowserModule,

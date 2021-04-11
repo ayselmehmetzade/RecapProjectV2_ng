@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 import { ICar } from 'src/app/interfaces/car';
 import { IRentalDetail } from 'src/app/interfaces/rental-detail';
 import { CarService } from 'src/app/services/car.service';
@@ -19,7 +18,7 @@ export class CarComponent implements OnInit {
   test: any[] = [];
   @Output() carDetail = new EventEmitter<ICar>();
 
-  constructor(private carService: CarService, private toastrService: ToastrService, public rentService: RentalDetailService) { }
+  constructor(private carService: CarService, public rentService: RentalDetailService) { }
 
   ngOnInit(): void {
     this.getCars();
@@ -28,6 +27,8 @@ export class CarComponent implements OnInit {
   getCars() {
     this.carService.getAll().subscribe(response => {
       this.cars = response.data;
+      console.log(response.data);
+      
       this.brandOptions = [...new Set(this.cars.map(b => b.brandText))].map(x => {
         return { label: x, value: x }
       }).sort((a, b) => (a.label > b.label ? 1 : -1));

@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IRentalDetail } from 'src/app/interfaces/rental-detail';
 import { MenuItem } from 'primeng/api';
 import { RentalDetailService } from 'src/app/services/rental-detail.service';
 import { IRental } from 'src/app/interfaces/rental';
-import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({

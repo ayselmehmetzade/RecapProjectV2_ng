@@ -15,7 +15,6 @@ import { RentalDetailService } from 'src/app/services/rental-detail.service';
   styleUrls: ['./payment.component.scss']
 })
 export class PaymentComponent implements OnInit {
-   //
   creditCardForm: FormGroup;
   @Input() rentForPayment: IRental;
   payment: IPayment;
@@ -75,6 +74,5 @@ export class PaymentComponent implements OnInit {
       window.location.reload();
     }, 3000);
   }
- 
+ }
 
-}

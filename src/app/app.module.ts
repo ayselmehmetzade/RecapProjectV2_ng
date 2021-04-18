@@ -11,11 +11,8 @@ import { BrandFilterPipe } from './pipes/brand-filter.pipe';
 import { ColorFilterPipe } from './pipes/color-filter.pipe';
 import { BrandComponent } from './components/brand/brand.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
-import { CarImageComponent } from './components/car-image/car-image.component';
 import { CarComponent } from './components/car/car.component';
 import { ColorComponent } from './components/color/color.component';
-import { CustomerComponent } from './components/customer/customer.component';
-import { RentalComponent } from './components/rental/rental.component';
 import { RentalDetailComponent } from './components/rental-detail/rental-detail.component';
 import { AppMenuTopComponent } from './app-menu.component';
 import { CarOperationComponent } from './components/car-operation/car-operation.component';
@@ -63,11 +60,8 @@ export function tokenGetter() {
     ColorFilterPipe,
     BrandComponent,
     CarDetailComponent,
-    CarImageComponent,
     CarComponent,
     ColorComponent,
-    CustomerComponent,
-    RentalComponent,
     RentalDetailComponent,
     AppMenuTopComponent,
     CarOperationComponent,
